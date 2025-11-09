@@ -1,0 +1,66 @@
+@use '../../../styles/variables.scss' as *;
+
+.navbar {
+  padding: 4rem 2.8rem;
+}
+.navbar__wrapper {
+  border-bottom: 1px solid $color-cloud-burst;
+  padding-bottom: 20px;
+
+}
+
+.navbar__logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.navbar__btn {
+  width: 3rem;
+  height: 1.2rem;
+  border: none;
+  background: none;
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: '<';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    color: $color-perano;
+  }
+
+  &::after {
+    content: '>';
+    position: absolute;
+    top: -3px;
+    right: 0;
+    color: $color-perano;
+  }
+}
+
+.navbar__search {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.navbar__search_field {
+  width: 100%;
+  height: 4.2rem;
+  padding-left: 4rem;
+  background-color: $color-midnight-express;
+  border: 1px solid $color-cloud-burst;
+  border-radius: 0.5rem;
+  color: $color-perano;
+  position: relative;
+  display: block;
+}
+
+.navbar__search_img {
+  position: absolute;
+  top: calc(50% - 8px);
+  left: 15px;
+  z-index: 100;
+}

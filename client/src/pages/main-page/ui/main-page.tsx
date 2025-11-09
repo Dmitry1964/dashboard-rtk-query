@@ -1,17 +1,17 @@
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import cls from './main-page.module.scss';
-// import { useDispatch } from 'react-redux';
-// import { changeLocation } from 'src/slicies/location-slice/location-slice';
+import { useDispatch } from 'react-redux';
+import { changeLocation } from 'src/slicies/location-slice/location-slice';
 
 const MainPage = () => {
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const pathhName = window.location.pathname;
-  //   dispatch(changeLocation(pathhName));
+  useEffect(() => {
+    const pathhName = window.location.pathname;
+    dispatch(changeLocation(pathhName));
 
-  // },[dispatch]);
+  },[dispatch]);
 
   return (
     <section className={cls.main_page}>
