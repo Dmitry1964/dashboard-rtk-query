@@ -1,0 +1,93 @@
+@use '../../styles/variables.scss' as *;
+
+.partners_page {
+  padding: 20px;
+  background-color: $color-midnight-express;
+  border-radius: 10px;
+  border: 1px solid $color-cloud-burst;
+  width: 90%;
+  height: 90%;
+  position: relative;
+}
+
+.partners_page__header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) ;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.partners_page__header_item {
+  display: flex;
+  align-items: center;
+}
+
+.partners_page__header_item_link {
+  display: flex;
+  align-items: center;
+  border: 1px solid $color-cloud-burst;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: $color-midnight-express;
+  cursor: pointer;
+  width: 100%;
+
+  color: $color-perano;
+
+  &:hover {
+    background-color: $color-black-russian-80;
+  }
+}
+
+.partners_page__header_item_icon {
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+}
+
+.partners_page__header_item_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.partners_page__header_item_content {
+  h3 {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  span {
+    font-size: 1.2rem;
+  }
+}
+
+.partners_page__add {
+  font-size: 1.6rem;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border: none;
+  margin: 0;
+  padding: 30px 15px;
+}
+
+[id='inn-field'] {
+  width: 300px;
+  padding: 5px;
+  border: 1px solid $color-cloud-burst;
+  border-radius: 5px;
+  background: transparent;
+  color: $color-default-white;
+}
+
+.partners_page__add_button {
+  border: none;
+  padding: 0;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+}

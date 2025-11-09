@@ -1,0 +1,19 @@
+@use  '../../../styles/variables.scss' as *;
+
+.partners_supplier {
+  padding: 20px;
+  background-color: $color-midnight-express;
+  border-radius: 10px;
+  border: 1px solid $color-cloud-burst;
+  width: 90%;
+  height: 90%;
+  position: relative;
+}
+
+.partners_supplier__title {
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin: 0 0 15px;
+  padding: 0 15px 20px;
+}
+
