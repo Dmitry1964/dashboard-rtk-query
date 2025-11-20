@@ -22,9 +22,9 @@ export interface IPartners {
   fullName?: string;
   phone?: string;
   contacts?: string;
-  roles: PartnerRoles;
-  createdAt: string;
-  updatedAt: string;
+  roles: PartnerRoles | string;
+  createdAt: Date | string;
+  updatedAt: Date | string;
 }
 
 export interface IPartnerFormData {
