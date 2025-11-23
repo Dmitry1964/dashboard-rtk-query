@@ -1,5 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import locationReducer from 'src/slicies/location-slice/location-slice';
+import { apiPartners } from 'src/api-query/api-partners';
 // import userRegisterReducer from 'src/slicies/user-auth-slice/user-register-slice';
 // import newPartnerReducer from 'src/slicies/new-partners-slice/new-partners-slice';
 // import partnersListReducer from 'src/slicies/partners-list-slice/partners-list-slice';
@@ -7,6 +9,7 @@ import locationReducer from 'src/slicies/location-slice/location-slice';
 
 const rootReducer = combineReducers({
   location: locationReducer,
+  [apiPartners.reducerPath]: apiPartners.reducer,
   // userRegister: userRegisterReducer,
   // newPartner: newPartnerReducer,
   // partnersList: partnersListReducer,
@@ -16,7 +19,11 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
   reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiPartners.middleware),
 });
+
+setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
