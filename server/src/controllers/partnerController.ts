@@ -34,6 +34,7 @@ export const createPartners = async (req: Request, res: Response, next: NextFunc
 
 export const getPartners = async (req: Request, res: Response, next: NextFunction) : Promise<void> => {
     try {
+        
         const partners = await Partner.find();
         if (partners.length === 0) {
             res.status(404).json({ success: false, message: 'Партнеры не найдены' });

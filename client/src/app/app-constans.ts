@@ -60,6 +60,7 @@ export const partnersLink: NavbarLinksType = {
 };
 
 export enum PartnerRoles {
+  All = 'Все',
   Bayers = 'Покупатели',
   Suppliers = 'Поставщики'
 }

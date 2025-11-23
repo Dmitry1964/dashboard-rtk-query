@@ -1,4 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import { PartnerRoles } from 'src/app/app-constans';
 import { IPartnersList } from 'src/app/app-types';
 
 
@@ -11,13 +12,19 @@ export const apiPartners = createApi({
   }),
   tagTypes: ['Partners'],
   endpoints: (build) => ({
-    getPartnersList: build.query<IPartnersList, void>({
-      query: () => ({
+    getPartnersList: build.query<IPartnersList, PartnerRoles>({
+      query: (role) => ({
         url: '/partners',
         method: 'GET',
+        params: role && role !== PartnerRoles.All ? { role } : {},
       }),
       providesTags: ['Partners'],
-      transformResponse: (response: { partners: IPartnersList }) => response.partners,
+      transformResponse: (response: { partners: IPartnersList }, _meta, arg) => {
+        if (!arg || arg === PartnerRoles.All) {
+          return response.partners;
+        }
+        return response.partners.filter((partner) => partner.roles === arg);
+      },
     }),
   }),
 });

@@ -7,11 +7,12 @@ import PartnersList from 'src/features/partners-list/ui/partners-list';
 
 // Моковые данные для демонстрации списка партнеров
 import { useGetPartnersListQuery } from 'src/api-query/api-partners';
+import { PartnerRoles } from 'src/app/app-constans';
 
 
 const PartnersPage = () => {
   // const status = FetchStatus.Succeeded; 
-  const {data, isLoading, isSuccess} = useGetPartnersListQuery();
+  const {data, isLoading, isSuccess} = useGetPartnersListQuery(PartnerRoles.All);
 
   console.log(data, isSuccess);
   
