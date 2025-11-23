@@ -6,12 +6,15 @@ import { changeLocation } from 'src/slicies/location-slice/location-slice';
 import PartnersList from 'src/features/partners-list/ui/partners-list';
 
 // Моковые данные для демонстрации списка партнеров
-import { partnersListMock } from 'src/shared/mocks';
-import { FetchStatus } from 'src/app/app-constans';
+import { useGetPartnersListQuery } from 'src/api-query/api-partners';
 
 
 const PartnersPage = () => {
-  const status = FetchStatus.Succeeded; 
+  // const status = FetchStatus.Succeeded; 
+  const {data, isLoading, isSuccess} = useGetPartnersListQuery();
+
+  console.log(data, isSuccess);
+  
 
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
@@ -22,7 +25,9 @@ const PartnersPage = () => {
   return (
     <section className={cls.partners_page}>
       Это страница партнеров
-      <PartnersList partnersList={partnersListMock} fetchStatusList={status} />
+      {isLoading && <div>Загрузка партнеров...</div>}
+      {data && <PartnersList partnersList={data} fetchStatusList={isSuccess} />
+}
     </section>
   )
 }

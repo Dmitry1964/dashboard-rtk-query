@@ -16,6 +16,8 @@ export const apiPartners = createApi({
         url: '/partners',
         method: 'GET',
       }),
+      providesTags: ['Partners'],
+      transformResponse: (response: { partners: IPartnersList }) => response.partners,
     }),
   }),
 });

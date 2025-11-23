@@ -1,4 +1,4 @@
-import { FetchStatus, PartnerRoles } from 'src/app/app-constans';
+import { PartnerRoles } from 'src/app/app-constans';
 import cls from './partners-list.module.scss';
 import { IPartners } from 'src/app/app-types';
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { AppRouter } from 'src/app/app-routes';
 import { useCallback } from 'react';
 
 type PartnersListProps = {
-  fetchStatusList?: FetchStatus;
+  fetchStatusList?: boolean;
   partnersList: IPartners[];
 }
 
@@ -38,7 +38,7 @@ const PartnersList = ({ fetchStatusList, partnersList }: PartnersListProps) => {
       </ul>
 
       <ul className={cls.partners__list}>
-        { fetchStatusList === FetchStatus.Succeeded &&
+        { fetchStatusList  &&
           partnersList.map((item) => (
             <li key={item.inn} className={cls.partners__item}>
               {item.roles === PartnerRoles.Bayers && (
