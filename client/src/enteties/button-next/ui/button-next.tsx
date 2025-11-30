@@ -1,4 +1,4 @@
-import cls from './button-next.module.scss';  
+import cls from './button-next.module.scss';
 import cn from 'classnames';
 
 
@@ -7,9 +7,15 @@ type ButtonNextProps = {
 }
 
 
-const ButtonNext = ({modePrev} : ButtonNextProps) => {
+const ButtonNext = ({ modePrev}: ButtonNextProps) => {
+  
+  
   return (
-    <button className={cn(cls.button_next, modePrev ? cls.button_next__reverse : '')}>
+    <button
+      className={cn(cls.button_next, {
+        [cls.button_next__reverse]: modePrev,
+      })}
+      >
       <img src="/content/svg/icon-arrow-right.svg" width={16} height={16} alt="Стрелка" />
     </button>
   );

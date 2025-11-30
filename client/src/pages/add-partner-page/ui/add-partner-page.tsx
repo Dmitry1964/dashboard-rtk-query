@@ -3,8 +3,10 @@ import cls from './add-partner.module.scss';
 import { useState } from 'react';
 import cn from 'classnames';
 import { MenuLinks } from 'src/app/app-constans';
+import ActionButton from 'src/enteties/action-button/ui/action-button';
 
 const AddPartnerPage = () => {
+
 
   const menuModes = {
     general: true,
@@ -19,18 +21,19 @@ const AddPartnerPage = () => {
     const linkText = e.currentTarget.textContent;
     switch (linkText) {
       case MenuLinks.General:
-        setMenuMod({...menuModes, general: true, contacts: false, bankDetails: false});
+        setMenuMod({ ...menuModes, general: true, contacts: false, bankDetails: false });
         break;
       case MenuLinks.Contacts:
-        setMenuMod({...menuModes, contacts: true, general: false, bankDetails: false});
+        setMenuMod({ ...menuModes, contacts: true, general: false, bankDetails: false });
         break;
       case MenuLinks.BankDetails:
-        setMenuMod({...menuModes, bankDetails: true, general: false, contacts: false});
+        setMenuMod({ ...menuModes, bankDetails: true, general: false, contacts: false });
         break;
       default:
         break;
     }
   }
+
 
   return (
     <section className={cls.add_partner}>
@@ -53,6 +56,14 @@ const AddPartnerPage = () => {
             <a onClick={(e) => handleMenuLink(e)} href="#" className={cn(cls.add_partner__link, menuMod.bankDetails ? cls.isActive : '')}>{MenuLinks.BankDetails}</a>
           </li>
         </ul>
+        <div className={cls.add_partner__buttons}>
+          <ActionButton>
+            <span>Сохранить</span>
+          </ActionButton>
+          <ActionButton modeTransparent>
+            <span>Закрыть</span>
+          </ActionButton>
+        </div>
       </div>
     </section>
   );

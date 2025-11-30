@@ -6,13 +6,18 @@
   border: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 
   &__reverse {
     transform: rotate(180deg);
   }
 
   &:hover {
-    background-color: darken($color-blue-violet, 10%);
-    cursor: pointer;
+    background-color: $color-medium-orchid;
   }
 }
+
+.button_next__disabled {
+  // display: none;
+  cursor: none;
+  }

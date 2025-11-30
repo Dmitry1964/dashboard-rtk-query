@@ -26,3 +26,32 @@
   display: flex;
   gap: 10px;
 }
+
+.add_partner__wrapper {
+  padding: 20px 50px;
+}
+
+.add_partner__menu {
+  display: flex;
+  gap: 40px;
+  padding: 12px 0;
+  margin: 0 0 10px;
+  list-style: none;
+}
+
+.add_partner__link {
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-perano;
+  transition: border-bottom 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    border-bottom: 2px solid $color-medium-orchid;
+    cursor: pointer;
+  }
+
+}
+
+.isActive {
+  color: $color-medium-orchid
+}
