@@ -1,0 +1,28 @@
+@use 'src/styles/variables.scss' as *;
+
+.add_partner {
+  background-color: $color-midnight-express;
+  height: 100%;
+  width: 90%;
+}
+
+.add_partner__header {
+  display: flex;
+  align-items: center;
+  background-color: $color-black-russian;
+  padding: 0 50px 20px;
+}
+
+.add_partner__title {
+  font-size: 22px;
+  font-weight: 500;
+  color: $color-medium-orchid;
+  margin: 0 0 0 20px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.add_partner__buttons {
+  display: flex;
+  gap: 10px;
+}

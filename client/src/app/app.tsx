@@ -8,6 +8,7 @@ import MainPage from "src/pages/main-page/ui/main-page";
 import PartnersPage from "src/pages/partners-page/partners-page";
 import { PartnersBayers } from "src/pages/partners-bayers";
 import PartnersSupplier from "src/pages/partners-supplier/ui/partners-supplier";
+import AddPartnerPage from "src/pages/add-partner-page/ui/add-partner-page";
 // import { PartnerUpdate } from "src/features/partner-update";
 
 function App() {
@@ -42,6 +43,10 @@ function App() {
         {
           path: AppRouter.Suppliers,
           element: <PartnersSupplier/>
+        },
+        {
+          path: AppRouter.AddPartner,
+          element: <AddPartnerPage/>
         },
         // {
         //   path: `${AppRouter.PartnerUpdate}/:inn`,

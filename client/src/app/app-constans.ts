@@ -64,3 +64,9 @@ export enum PartnerRoles {
   Bayers = 'Покупатели',
   Suppliers = 'Поставщики'
 }
+
+export enum MenuLinks {
+  General = 'Основное',
+  Contacts = 'Контакты',
+  BankDetails = 'Банковские реквизиты'
+}

@@ -28,7 +28,7 @@ const PartnersPage = () => {
 
   return (
     <section className={cls.partners_page}>
-      <Button href={AppRouter.Main}>
+      <Button href={AppRouter.AddPartner}>
         <span>Новый партнер</span>
         <img src="content/svg/icon-arrow-right.svg" width={16} height={16} alt="Стрелка вправо" />
       </Button>
