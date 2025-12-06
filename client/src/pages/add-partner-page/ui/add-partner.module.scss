@@ -2,8 +2,9 @@
 
 .add_partner {
   background-color: $color-midnight-express;
-  height: 100%;
+  height: 75%;
   width: 90%;
+  border-radius: 15px;
 }
 
 .add_partner__header {
@@ -24,7 +25,8 @@
 
 .add_partner__buttons {
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 .add_partner__wrapper {

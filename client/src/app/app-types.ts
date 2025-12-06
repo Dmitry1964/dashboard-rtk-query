@@ -42,3 +42,12 @@ export interface IPartnerNew {
 }
 
 export type IPartnersList = IPartners[];
+
+export interface IPartnerInfo {
+  formOwnership: string;
+  shortName: string;
+  fullName: string;
+  innCode: string;
+  kppCode: string;
+  ogrnCode: string;  
+}

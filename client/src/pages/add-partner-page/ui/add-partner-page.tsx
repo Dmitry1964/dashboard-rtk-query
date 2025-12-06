@@ -4,6 +4,7 @@ import { useState } from 'react';
 import cn from 'classnames';
 import { MenuLinks } from 'src/app/app-constans';
 import ActionButton from 'src/enteties/action-button/ui/action-button';
+import { PartnerInfo } from 'src/features/partner-info';
 
 const AddPartnerPage = () => {
 
@@ -57,14 +58,16 @@ const AddPartnerPage = () => {
           </li>
         </ul>
         <div className={cls.add_partner__buttons}>
-          <ActionButton>
+          <ActionButton modeTransparent={false}>
             <span>Сохранить</span>
           </ActionButton>
           <ActionButton modeTransparent>
             <span>Закрыть</span>
           </ActionButton>
         </div>
+        <PartnerInfo />
       </div>
+
     </section>
   );
 }

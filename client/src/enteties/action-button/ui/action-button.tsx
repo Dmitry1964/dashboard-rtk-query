@@ -2,7 +2,7 @@ import cls from './action-button.module.scss';
 import cn from 'classnames';
 
 type ActionButtonProps = {
-  modeTransparent?: boolean;
+  modeTransparent: boolean;
   children: React.ReactNode;
 }
 
@@ -11,7 +11,7 @@ const ActionButton = ({ modeTransparent, children}: ActionButtonProps) => {
   return (
     <button
       className={cn(cls.action_button, {
-        [cls.action_button__tranparent]: modeTransparent,
+        [cls.action_button__transparent]: modeTransparent,
       })}
       >
         {children}
