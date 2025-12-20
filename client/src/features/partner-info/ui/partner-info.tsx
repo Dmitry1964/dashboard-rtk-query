@@ -1,9 +1,20 @@
 import ActionButton from 'src/enteties/action-button/ui/action-button';
 import cls from '../ui/partner-info.module.scss';
+import { useState } from 'react';
 
 
 
 const PartnerInfo = () => {
+
+  const [innCode, setInnCode] = useState('');
+
+  const handleInnCodeField = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInnCode(e.target.value);
+  }
+  const handleButtonInnCode = (evt: React.MouseEvent<HTMLButtonElement>) => {
+    evt.preventDefault();
+  }
+
   return (
     <article className={cls.partner_info}>
       <form action="">
@@ -22,8 +33,8 @@ const PartnerInfo = () => {
           </div>
           <div className={cls.partner_info__item}>
             <label className={cls.partner_info__label} htmlFor="innCode">ИНН</label>
-            <input className={cls.partner_info__input} type="text" id="innCode" name="innCode" />
-            <ActionButton modeTransparent={false} >
+            <input className={cls.partner_info__input} value={innCode} onChange={handleInnCodeField} type="text" id="innCode" name="innCode" />
+            <ActionButton modeTransparent={false} handleClick={handleButtonInnCode}>
               <img src="/content/svg/icon-search.svg" width={16} height={16} alt="Значок поиска" />
               <span>Заполнить реквизиты по ИНН</span>
             </ActionButton>

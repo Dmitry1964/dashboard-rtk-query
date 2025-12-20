@@ -2,6 +2,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import locationReducer from 'src/slicies/location-slice/location-slice';
 import { apiPartners } from 'src/api-query/api-partners';
+import { apiFns } from 'src/api-query/api-fns';
 // import userRegisterReducer from 'src/slicies/user-auth-slice/user-register-slice';
 // import newPartnerReducer from 'src/slicies/new-partners-slice/new-partners-slice';
 // import partnersListReducer from 'src/slicies/partners-list-slice/partners-list-slice';
@@ -9,6 +10,7 @@ import { apiPartners } from 'src/api-query/api-partners';
 
 const rootReducer = combineReducers({
   location: locationReducer,
+  [apiFns.reducerPath]: apiFns.reducer,
   [apiPartners.reducerPath]: apiPartners.reducer,
   // userRegister: userRegisterReducer,
   // newPartner: newPartnerReducer,

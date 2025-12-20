@@ -16,6 +16,7 @@ const AddPartnerPage = () => {
   }
 
   const [menuMod, setMenuMod] = useState(menuModes);
+  // const [codeInn, setCodeInn] = useState('');
 
   const handleMenuLink = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
@@ -33,6 +34,14 @@ const AddPartnerPage = () => {
       default:
         break;
     }
+  }
+
+  const handleButtonSave = () => {
+    // Logic to save partner information
+  }
+
+  const handleButtonClose = () => {
+    // Logic to close the add partner page
   }
 
 
@@ -58,10 +67,10 @@ const AddPartnerPage = () => {
           </li>
         </ul>
         <div className={cls.add_partner__buttons}>
-          <ActionButton modeTransparent={false}>
+          <ActionButton modeTransparent={false} handleClick={handleButtonSave}>
             <span>Сохранить</span>
           </ActionButton>
-          <ActionButton modeTransparent>
+          <ActionButton modeTransparent ={true} handleClick={handleButtonClose}>
             <span>Закрыть</span>
           </ActionButton>
         </div>

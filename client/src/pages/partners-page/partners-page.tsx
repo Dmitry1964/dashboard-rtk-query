@@ -17,8 +17,6 @@ const PartnersPage = () => {
   // const status = FetchStatus.Succeeded; 
   const {data, isLoading, isSuccess} = useGetPartnersListQuery(PartnerRoles.All);
 
-  console.log(data, isSuccess);
-  
 
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
