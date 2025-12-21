@@ -1,18 +1,24 @@
 import ActionButton from 'src/enteties/action-button/ui/action-button';
 import cls from '../ui/partner-info.module.scss';
 import { useState } from 'react';
+import { AppDispatch } from 'src/store/store';
+import { useDispatch } from 'react-redux';
+import { fetchAddPartner } from 'src/slicies/add-partner-slice/add-partner-slice';
 
 
 
 const PartnerInfo = () => {
 
   const [innCode, setInnCode] = useState('');
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleInnCodeField = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInnCode(e.target.value);
   }
   const handleButtonInnCode = (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
+    dispatch(fetchAddPartner(innCode));
+    
   }
 
   return (
@@ -54,3 +60,4 @@ const PartnerInfo = () => {
 }
 
 export default PartnerInfo;
+

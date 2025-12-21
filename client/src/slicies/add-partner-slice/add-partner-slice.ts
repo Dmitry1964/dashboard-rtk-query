@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 import apiDataNewton from "src/api/api-data-newton";
 import { FetchStatus } from "src/app/app-constans";
 import { IPartnerInfo } from "src/app/app-types";
-import { ErrorCompany, RootCompany } from "src/app/app-company-types";
+import { RootCompany } from "src/app/app-company-types";
 
 interface IAddPartnerState {
   partnerInfo: IPartnerInfo | null;
@@ -16,18 +17,20 @@ const initialState: IAddPartnerState = {
   message: ""
 };
 
-export const fetchAddPartner = createAsyncThunk<IPartnerInfo, string, {rejectValue: ErrorCompany | string}>(
+export const fetchAddPartner = createAsyncThunk<IPartnerInfo, string, {rejectValue: string}>(
   "partner/fetchAddPartner",
   async (code: string, {rejectWithValue}) => {
     try {
       
-      const response = await apiDataNewton.get<RootCompany | ErrorCompany>(`&inn=${code}`);
+      const response = await apiDataNewton.get<RootCompany>(`&inn=${code}`);
 
       const data = response.data;
-      if ('code' in data) {
-        // Это ErrorCompany
-        return rejectWithValue(data.message);
-      }
+      
+      // if ('code' in data) {
+      //   console.log('aaa');
+        
+      //   return rejectWithValue(data.message);
+      // }
       // Преобразование Root в IPartnerInfo
       const partnerInfo: IPartnerInfo = {
         formOwnership: data.company.opf,
@@ -39,9 +42,14 @@ export const fetchAddPartner = createAsyncThunk<IPartnerInfo, string, {rejectVal
       };
 
       return partnerInfo;
-    } catch  {
+    } catch (error) {
+      if (error instanceof AxiosError && error.response?.data) {
+        if (error.response.data.code === 1) {
+          return rejectWithValue(`${error.response.data.message}. Введите правильный ИНН`)
+        }
+        return rejectWithValue(`${error.response.data.message} Невалидный ИНН. ИНН должен быть 10 или 12 символов.`);
+      }
       return rejectWithValue("Ошибка при получении данных партнера");
-      
     }
   }
 )
