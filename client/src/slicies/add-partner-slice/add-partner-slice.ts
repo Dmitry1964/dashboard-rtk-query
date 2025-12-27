@@ -2,11 +2,10 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import apiDataNewton from "src/api/api-data-newton";
 import { FetchStatus } from "src/app/app-constans";
-import { IPartnerInfo } from "src/app/app-types";
 import { RootCompany } from "src/app/app-company-types";
 
 interface IAddPartnerState {
-  partnerInfo: IPartnerInfo | null;
+  partnerInfo: RootCompany | null;
   fetchStatus: FetchStatus;
   message: string;
 }
@@ -17,7 +16,7 @@ const initialState: IAddPartnerState = {
   message: ""
 };
 
-export const fetchAddPartner = createAsyncThunk<IPartnerInfo, string, {rejectValue: string}>(
+export const fetchAddPartner = createAsyncThunk<RootCompany, string, {rejectValue: string}>(
   "partner/fetchAddPartner",
   async (code: string, {rejectWithValue}) => {
     try {
@@ -32,14 +31,14 @@ export const fetchAddPartner = createAsyncThunk<IPartnerInfo, string, {rejectVal
       //   return rejectWithValue(data.message);
       // }
       // Преобразование Root в IPartnerInfo
-      const partnerInfo: IPartnerInfo = {
-        formOwnership: data.company.opf,
-        shortName: data.company.company_names.short_name,
-        fullName: data.company.company_names.full_name,
-        innCode: data.inn,
-        kppCode: data.company.kpp,
-        ogrnCode: data.ogrn,
+      const partnerInfo: RootCompany = {
+        company: data.company,
+        inn: data.inn,
+        ogrn: data.ogrn
       };
+
+      console.log(partnerInfo);
+      
 
       return partnerInfo;
     } catch (error) {
@@ -63,7 +62,7 @@ const addPartnerSlice = createSlice({
       state.fetchStatus = FetchStatus.Loading;
       state.message = "";
     });
-    builder.addCase(fetchAddPartner.fulfilled, (state, action: PayloadAction<IPartnerInfo>) => {
+    builder.addCase(fetchAddPartner.fulfilled, (state, action: PayloadAction<RootCompany>) => {
       state.fetchStatus = FetchStatus.Succeeded;
       state.partnerInfo = action.payload;
       state.message = "Партнер успешно добавлен";

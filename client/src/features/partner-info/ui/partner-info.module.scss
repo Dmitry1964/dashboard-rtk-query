@@ -23,16 +23,17 @@
 
 .partner_info__input {
   width: 600px;
-  height: 44px;
+  min-height: 44px;
   border: none;
   background: none;
   border: 1px solid $color-cloud-burst;
   border-radius: 8px;
   padding: 0 20px;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   line-height: 2.4rem;
   color: $color-perano;
   }
+
 
   [id="formOwnership"] {
     border: none;
@@ -41,3 +42,8 @@
   [id="innCode"], [id="kppCode"], [id="ogrnCode"] {
     width: 200px;
   } 
+
+  [id="radioButtons"] {
+    display: flex;
+    gap: 50px;
+  }

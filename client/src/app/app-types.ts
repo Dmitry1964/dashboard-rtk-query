@@ -26,28 +26,34 @@ export interface IPartners {
   createdAt: Date | string;
   updatedAt: Date | string;
 }
-
 export interface IPartnerFormData {
   inn: string;
+  kpp: string;
+  ogrn: string;
+  opf: string;
   shortName: string;
-  fullName?: string;
-  phone?: string;
-  contacts?: string;
+  fullName: string;
+  reversedShortName: string;
+  managers: {
+    fio: string;
+    position: string;
+    };
+    address: {
+      lineAddress: string;
+      zipCode: string;
+    };
+  contacts: {
+    phone?: string;
+    email?: string;
+    webpage?: string;
+  };
   roles: PartnerRoles;
 }
 
-export interface IPartnerNew {
-  inn: string;
-  shortName: string;
-}
+// export interface IPartnerNew {
+//   inn: string;
+//   shortName: string;
+// }
 
 export type IPartnersList = IPartners[];
 
-export interface IPartnerInfo {
-  formOwnership: string;
-  shortName: string;
-  fullName: string;
-  innCode: string;
-  kppCode: string;
-  ogrnCode: string;  
-}

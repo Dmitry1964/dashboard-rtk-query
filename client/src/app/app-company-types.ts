@@ -2,7 +2,7 @@ export interface RootCompany {
   inn: string
   ogrn: string
   company: Company
-  available_count: number
+  available_count?: number
 }
 
 export interface Company {
@@ -72,10 +72,10 @@ export interface TaxModeInfo {
   common_mode: boolean
 }
 
-export interface ErrorCompany {
-  code: number
-  message: string
-  source : {
-    "getCompanyData.inn": string
-  }
-}
+// export interface ErrorCompany {
+//   code: number
+//   message: string
+//   source : {
+//     "getCompanyData.inn": string
+//   }
+// }
