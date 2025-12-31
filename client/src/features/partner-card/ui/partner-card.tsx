@@ -1,4 +1,3 @@
-import cls from './partner-info.module.scss';
 
 const PartnerCard = () => {
   return (

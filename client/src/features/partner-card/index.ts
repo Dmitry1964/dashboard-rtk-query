@@ -1,3 +1,3 @@
-import PartnerCard from "./ui/partner-info";
+import PartnerCard from "./ui/partner-card";
 
 export { PartnerCard };

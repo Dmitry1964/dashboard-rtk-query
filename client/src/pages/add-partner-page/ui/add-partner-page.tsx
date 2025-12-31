@@ -5,11 +5,12 @@ import cn from 'classnames';
 import { MenuLinks } from 'src/app/app-constans';
 import ActionButton from 'src/enteties/action-button/ui/action-button';
 import { PartnerInfo } from 'src/features/partner-info';
+import { IMenuMode } from 'src/app/app-types';
 
 const AddPartnerPage = () => {
 
 
-  const menuModes = {
+  const menuModes : IMenuMode = {
     general: true,
     contacts: false,
     bankDetails: false,
@@ -74,7 +75,7 @@ const AddPartnerPage = () => {
             <span>Закрыть</span>
           </ActionButton>
         </div>
-        <PartnerInfo />
+        <PartnerInfo mod = {menuMod} />
       </div>
 
     </section>

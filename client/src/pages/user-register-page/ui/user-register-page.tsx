@@ -1,4 +1,3 @@
-import { AddUser } from 'src/features/add-user';
 import cls from './user-register.module.scss';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -16,7 +15,6 @@ const UserRegisterPage = () => {
 
   return (
     <section className={cls.user_register_page}>
-      <AddUser />
     </section>
   )
 }

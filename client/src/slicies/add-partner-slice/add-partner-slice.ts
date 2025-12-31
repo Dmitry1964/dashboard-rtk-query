@@ -37,9 +37,6 @@ export const fetchAddPartner = createAsyncThunk<RootCompany, string, {rejectValu
         ogrn: data.ogrn
       };
 
-      console.log(partnerInfo);
-      
-
       return partnerInfo;
     } catch (error) {
       if (error instanceof AxiosError && error.response?.data) {

@@ -42,18 +42,19 @@ export interface IPartnerFormData {
       lineAddress: string;
       zipCode: string;
     };
-  contacts: {
-    phone?: string;
-    email?: string;
-    webpage?: string;
-  };
+  // contacts: {
+  //   phone?: string;
+  //   email?: string;
+  //   webpage?: string;
+  // };
   roles: PartnerRoles;
 }
 
-// export interface IPartnerNew {
-//   inn: string;
-//   shortName: string;
-// }
 
 export type IPartnersList = IPartners[];
 
+export interface IMenuMode {
+  general: boolean;
+    contacts: boolean;
+    bankDetails: boolean;
+}

@@ -22,7 +22,10 @@ export interface Company {
   charter_capital: string
   negative_lists: null | string
   workers_count: null | string
-  contacts: null | string
+  contacts: {
+    emails: string[]
+    phones: string[]
+  }
   tax_mode_info: TaxModeInfo
   predecessors: string[]
   successors: string[]
